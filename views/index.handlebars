@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HOME</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row text-center">
+      {{#if user}}
+        <div class="col-md-12 text-center">
+            <p>
+              Add your blogs by clicking the above <b>ADD</b> button. <br>You can view all blogs by clicking the <b>BLOG</b> button.
+            </p>
+        </div>
+      {{else}}
+        {{title}}
+      {{/if}}
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{{#each blog}}
+<div class="card card-body mb-2">
+  <h4>Name: {{owner}}</h4>
+  <br>
+  <h5>Title: {{title}}</h5>
+  <p>{{details}}</p>
+</div>
+<a class="btn btn-dark btn-block mb-2" href="/blogs/edit/{{id}}">Edit Blog</a>
+
+<form action="/blogs/{{id}}?_method=DELETE" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" class="btn btn-danger btn-block" value="Delete">
+</form>
+<br>
+{{else}}
+<p>No Blogs listed</p>
+{{/each}}

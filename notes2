@@ -1,0 +1,201 @@
+Node allows us to use JS on the server (like PHP, rails, java,etc).
+Experience with Nodejs is needed all around the world.
+
+
+Nodejs can:
+1. manipulate fils on the filesystem
+2. build webservers
+3. query databases
+4. build powerful APIs
+
+mongod --directoryperdb --dbpath ../data/db --logpath ../log/mongo.log --logappend --rest --install
+
+export PATH=<mongodb-install-directory>/bin:$PATH
+
+-->mongo (remember mongo database is a NoSQL)
+1. start the mongod
+>>sudo mongod
+2. on a different terminal window enter
+>>export PATH=/Users/kb2232/Desktop/udemy/mongodb/mongodb-osx-x86_64-3.0.15/bin:$PATH
+>>mongo
+
+/*
+TOOLS USED in project 
+1. Node.js
+2. Express.js (routes)
+3. handlebars (html templates)
+4. Mongoose (NoSQL database)
+5. Others:
+    1. body-parser (request body)
+    2. method-override (PUT method)
+    3. Flash (messaging)
+    4. express session
+6. Passport (authentication-local strategy-store in database)
+http://www.passportjs.org/docs/
+    1. Local strategy module 
+
+*/
+
+
+
+1. create directory BLOG-->blogAPP.js
+2. >>npm init
+fill out the package.json
+3. I brought in express
+- express allows to GET routes, POST on routes, DELETE ..etc...
+https://www.npmjs.com/package/express
+basically entered everything on that page
+4. >>npm install nodemon
+this allows live update of server
+5. >>nodemon
+that starts the server
+
+6. I brought in express handlebars
+>>npm install --save-dev express-handlebars
+follow things here:
+https://github.com/ericf/express-handlebars
+
+7. I entered localhost:4000 on a web browser and I got error -
+"Error: Failed to lookup view "home" in views directory "/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/views"
+    at Function.render (/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/node_modules/express/lib/application.js:580:17)
+    at ServerResponse.render (/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/node_modules/express/lib/response.js:1008:7)
+    at app.get (/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/blogAPP.js:15:11)
+    at Layer.handle [as handle_request] (/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/node_modules/express/lib/router/index.js:275:10)"
+
+Basically I need to create this directory
+/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/views
+Then make a file in views called home.handlebars
+
+8. After completing number 7 above, it will give you this error if you connect -
+"Error: ENOENT: no such file or directory, open '/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/views/layouts/main.handlebars'"
+
+All you need to do is make a directory:
+/Users/kb2232/Desktop/udemy/nodejs_projectBased/BLOG/views/layouts/main.handlebars
+
+9. copy everything under
+views/layouts/main.handlebars:
+in website https://github.com/ericf/express-handlebars
+into your main.handlebars
+
+10. Add bootstrap to your main.handlebars
+
+11. Create a 
+views>partials>_navbar.handlebars
+directory and file
+Go on bootstrap 4 page and add navbar into the _navbar.handlebars.
+Then in main.handlebars signify it with 
+{{> _navbar}}
+
+12. next - do the same as 11 but or a jumbotron (_jumbo.handlebars)
+
+13. in the views directory - i created add_blog.handlebars see_blog.handlebars
+
+//http://mongoosejs.com/docs/index.html
+14. we need to connect to the NoSQL database - mongoose - this is so that we can POST our blogs into the database
+A. brought it mongoose and its middleware
+B. created a schema
+C. created a model
+D. create a POST method
+    D1. create a new variable
+    D2. save it so it can go to database
+E. bring in body parser
+At this point - inputs should be able to save in database
+
+14. create a get method for the see_blog 
+
+15. Now we need to fetch blogs from database and render it on the see_blog
+
+16. in the see_blog.handlebars, you must loop through the data
+/*
+{{#each ideas}}
+  <div class="card card-body mb-2">
+    <h4>Name: {{owner}}</h4><br>
+    <h4>Title: {{title}}</h4>
+    <p>{{details}}</p>
+  </div>
+{{else}}
+  <p>No Blogs listed</p>
+{{/each}}
+*/
+
+17. see_blog
+{{#each blog}}
+  <div class="card card-body mb-2">
+    <h4>Name: {{owner}}</h4><br>
+    <h4>Title: {{title}}</h4>
+    <p>{{details}}</p>
+  </div>
+  <a class="btn btn-dark btn-block mb-2" href="/edit_blog/{{id}}">Edit Blog</a>
+{{else}}
+  <p>No Blogs listed</p>
+{{/each}}
+
+18. I basically made it possible to edit my form and delete it
+
+19. //////////FLASH MESSAGING/////////////
+
+We need to bring in express session and connect FLASH
+//flash
+var flash = require('connect-flash');
+//express session
+var session = require('express-session');
+
+If you edit or delete or update or log in - we need some form of knowing what we just did. This is called flash messaging. we need the middlewares as well.
+
+//session middlwware
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
+
+//connect
+app.use(flash());
+//global variables
+app.use((req,res,next)=> {
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
+  next();
+});
+
+I chose to create a partial _msg.handlebars for the messaging output needed each time.
+/////
+{{#if success_msg}}
+  <div class="alert alert-success">
+    {{success_msg}}
+  </div>
+{{/if}}
+
+{{#if success_msg}}
+  <div class="alert alert-danger">
+    {{error_msg}}
+  </div>
+{{/if}}
+///////////////////////
+
+////////////////NOW THE AUTHENTICATION ASPECT////////////////
+1. I first created the routes
+///user login route
+app.get('/users/login',(request,respond)=>{
+  respond.send("login");
+});
+
+///user register route
+app.get('/users/register',(request,respond)=>{
+  respond.send("register");
+});
+
+2. in the root directory, i created blogs.js and users.js bc my app.js was getting to cramped. The idea is to re-route the routes.
+    1. in the blogs.js, once you move all the blogs stuff, change all the word 'app' to 'router'
+
+    I removed it bc it was confusing
+
+3. In the views directory, I created login.handlebars and register.handlebars.
+4. in the login.handlebars, i made the login forms

@@ -1,0 +1,70 @@
+<!-- begging of the footer -->
+<hr>
+<footer class="page-footer center-on-small-only footer">
+	<!--footer Links-->
+	<div class="container-fluid bg-warning">
+		<div class="row">
+			<!--first column-->
+			<div class="col-4 col-sm-4 align-self-center text-center">
+				<h5 class="title">Links</h5>
+				{{#if user}}
+				<a href="/blogs">See Blog</a>
+				<br>
+				<a href="/blogs/add">Add Blog</a>
+				{{else}}
+				<a href="/users/login" class="nav-link">Login</a>
+				<a href="/users/register" class="nav-link">Register</a>
+				{{/if}}
+			</div>
+			<!--end first column-->
+			<!-- second -->
+			<div class="col-4 col-xs-6 col-sm-4">
+				<div style="text-align: center">
+					<h5 class="title">Address</h5>
+					<address>
+						Brooklyn NY, 11219
+						<br> United States of America
+						<br>
+						<i class="fa fa-phone fa-lg"></i>:+516 406-9999
+						<br>
+						<i class="fa fa-fax fa-lg"></i>+:516 506-9999
+						<br>
+						<i class="fa fa-envelope fa-lg"></i>:
+						<a href="mailto:kb2232@nyu.edu">kb2232@nyu.edu</a>
+					</address>
+				</div>
+			</div>
+			<!--end of second col -->
+			<!--third col -->
+			<div class="col-4 col-xs-6 col-sm-4 align-self-center">
+				<div style="text-align:center">
+					<a class="btn btn-social-icon btn-google-plus" href="http://google.com/+">
+						<i class="fa fa-google-plus"></i>
+					</a>
+					<a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id=">
+						<i class="fa fa-facebook"></i>
+					</a>
+					<a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/">
+						<i class="fa fa-linkedin"></i>
+					</a>
+					<a class="btn btn-social-icon btn-twitter" href="http://twitter.com/">
+						<i class="fa fa-twitter"></i>
+					</a>
+					<a class="btn btn-social-icon btn-youtube" href="http://youtube.com/">
+						<i class="fa fa-youtube"></i>
+					</a>
+				</div>
+			</div>
+			<!--./third col -->
+		</div>
+	</div>
+	<!--copyright-->
+	<div class="footer-copyright offset-1">
+		<div class="container-fluid">
+			© 2018 Copyright:
+			<a href="https://www.linkedin.com/in/kb2232cpp/">linkedIn.com</a>
+		</div>
+	</div>
+	<!--end copyright-->
+</footer>
+<!--End of footer-->
