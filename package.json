@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "description": "basic blog site with back-end",
   "engines": {
-    "node":"8.9.4",
-    "npm":"5.7.1"
+    "node": "8.9.4",
+    "npm": "5.7.1"
   },
   "main": "blogAPP.js",
   "scripts": {
-    "start": "node blogApp.js",
-    "postinstall": "bower install && grunt build"
+    "start": "node blogApp.js"
   },
   "author": "",
   "license": "ISC",
@@ -26,5 +25,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "dotenv": "^5.0.1"
+  }
 }
