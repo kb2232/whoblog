@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "basic blog site with back-end",
   "main": "blogAPP.js",
-  "engines": {"node": "8.9.4","npm": "5.7.1"},
-  "scripts": {"start": "node blogApp.js"},
-  "author": "",
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.7.1"
+  },
+  "scripts": {
+    "start": "node blogApp.js"
+  },
+  "author": "kunle",
   "license": "ISC",
-  
+
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
