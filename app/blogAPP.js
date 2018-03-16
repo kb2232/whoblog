@@ -11,14 +11,14 @@ var mongoose = require('mongoose');
 var app = express();
 
 // Load routes
-var blogs = require('./routes/blogs');
-var users = require('./routes/users');
+var blogs = require('../routes/blogs');
+var users = require('../routes/users');
 
 // Passport Config
-require('./config/passport')(passport);
+require('../config/passport')(passport);
 
 //database config
-var db = require('./config/database');
+var db = require('../config/database');
 
 // Connect to mongoose - using rl
 mongoose.connect(db.mongoURI).then(() => console.log('MongoDB Connected...')).catch(err => console.log(err));
@@ -74,11 +74,7 @@ app.get('/', (req, res) => {
 app.use('/blogs', blogs);
 app.use('/users', users);
 
-var port = 4000;
-
-app.set( 'port', ( process.env.PORT || 4000 ));
-
-// Start node server
-app.listen( app.get( 'port' ), function() {
-  console.log( 'Node server is running on port ' + app.get( 'port' ));
-  });
+ var port = 4000;
+app.listen(port,()=>{
+  console.log(`Server started on port ${port}`);
+});
