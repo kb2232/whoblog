@@ -2,23 +2,29 @@
   "name": "blogapp",
   "version": "1.0.0",
   "description": "basic blog site with back-end",
+  "engines": {
+    "node":"8.9.4",
+    "npm":"5.7.1"
+  },
   "main": "blogAPP.js",
   "scripts": {
-    "start": "node blogApp.js"
+    "start": "node blogApp.js",
+    "postinstall": "bower install && grunt build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^1.17.1"
-  },
-  "devDependencies": {
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
+    "light-server": "^2.4.0",
     "method-override": "^2.3.10",
+    "mongoose": "^5.0.10",
+    "nodemon": "^1.17.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
-  }
+  },
+  "devDependencies": {}
 }

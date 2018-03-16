@@ -20,7 +20,7 @@ require('./config/passport')(passport);
 //database config
 var db = require('./config/database');
 
-// Connect to mongoose
+// Connect to mongoose - using rl
 mongoose.connect(db.mongoURI).then(() => console.log('MongoDB Connected...')).catch(err => console.log(err));
 
 // Handlebars Middleware
@@ -74,8 +74,11 @@ app.get('/', (req, res) => {
 app.use('/blogs', blogs);
 app.use('/users', users);
 
-var port = process.env.PORT||4000;
+var port = 4000;
 
-app.listen(port, () =>{
-  console.log(`Server started on port ${port}`);
-});
+app.set( 'port', ( process.env.PORT || 4000 ));
+
+// Start node server
+app.listen( app.get( 'port' ), function() {
+  console.log( 'Node server is running on port ' + app.get( 'port' ));
+  });

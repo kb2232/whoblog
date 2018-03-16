@@ -199,3 +199,6 @@ app.get('/users/register',(request,respond)=>{
 
 3. In the views directory, I created login.handlebars and register.handlebars.
 4. in the login.handlebars, i made the login forms
+
+
+
