@@ -11,14 +11,14 @@ var mongoose = require('mongoose');
 var app = express();
 
 // Load routes
-var blogs = require('../routes/blogs');
-var users = require('../routes/users');
+var blogs = require('./routes/blogs');
+var users = require('./routes/users');
 
 // Passport Config
-require('../config/passport')(passport);
+require('./config/passport')(passport);
 
 //database config
-var db = require('../config/database');
+var db = require('./config/database');
 
 // Connect to mongoose - using rl
 mongoose.connect(db.mongoURI).then(() => console.log('MongoDB Connected...')).catch(err => console.log(err));
