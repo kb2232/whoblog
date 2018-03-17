@@ -4,7 +4,7 @@
   "description": "basic blog site with back-end",
   "main": "blogAPP.js",
   "scripts": {
-    "prestart": "next build",
+    "prestart": "node blogAPP.js",
     "start": "node blogAPP.js"
   },
   "engines": {
