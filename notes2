@@ -33,8 +33,11 @@ TOOLS USED in project
 6. Passport (authentication-local strategy-store in database)
 http://www.passportjs.org/docs/
     1. Local strategy module 
-7. Heroku and Git is used for deployement
+7. Heroku and Git is used for 
+    1. heroku create
     1. heroku apps:destroy <app-name>
+    2. heroku logs --tail --app <app-name>
+  
 */
 
 
