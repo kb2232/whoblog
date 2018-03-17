@@ -18,6 +18,15 @@ router.get('/', ensureAuthenticated, (req, res) => {
   });
 });
 
+// all blogs Index Page
+router.get('/allindex', ensureAuthenticated, (req, res) => {
+  Blog.find({}).sort({ date: 'desc' }).then(blog => {
+    res.render('blogs/allindex', {
+      blog: blog
+    });
+  });
+});
+
 // Add Blog Form
 router.get('/add', ensureAuthenticated, (req, res) => {
   res.render('blogs/add');
