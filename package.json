@@ -5,7 +5,7 @@
   "main": "blogAPP.js",
   "scripts": {
     "prestart": "next build",
-    "start": "next start -p ${PORT}"
+    "start": "node blogAPP.js"
   },
   "engines": {
     "node": "8.9.4",
