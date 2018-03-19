@@ -1,0 +1,9 @@
+$("#pogPink").click(function(){
+	$("#pogText").css("color","pink");
+});
+$("#pogOrange").click(function(){
+	$("#pogText").css("color","orange");
+});
+$("#pogGreen").click(function(){
+	$("#pogText").css("color","green");
+});

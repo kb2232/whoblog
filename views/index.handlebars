@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>HOME</title>
 </head>
+
 <body>
   <div class="container">
     <div class="row text-center">
       {{#if user}}
-        <div class="col-md-12 text-center">
-            <p>
-              Add your blogs by clicking the above <b>ADD</b> button. <br>You can view all blogs by clicking the <b>BLOG</b> button.
-            </p>
+      <div class="col-md-12 text-center">
+        <p>
+          Add your blogs by clicking the above
+          <b>ADD</b> button.
+          <br>You can view all blogs by clicking the
+          <b>BLOG</b> button.
+        </p>
+      </div>
+      {{else}} {{title}} {{/if}}
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-4 col-md-4">
+        <button class="btn btn-success" id="pogGreen">Green</button>
+        &nbsp; &nbsp;
+        <button class="btn btn-warning" id="pogOrange">Orange</button>
+        &nbsp; &nbsp; &nbsp;
+        <button class="btn pnkb" id="pogPink">Pink</button>
+        <br>
+        <div>
+          <p class="h2 text-center" width="420" height="360"  id="pogText">Kunle<br>Blog!!<br>Blog!!<br>Blog!!</p>
         </div>
-      {{else}}
-        {{title}}
-      {{/if}}
+      </div>
+      <div class="col-xs-6 col-md-6 offset-md-2">
+        <h3 class="title text-center">Salah scores 4 goals</h3>
+        <iframe width="420" height="360" src="https://www.youtube.com/embed/ks_nyjXsQuU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </div>
 </body>
+
 </html>

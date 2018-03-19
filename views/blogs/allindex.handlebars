@@ -1,4 +1,13 @@
-{{#each blog}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ALL-BLOG</title>
+</head>
+<body class="bodyB">
+  {{#each blog}}
 <div class="card card-body mb-2">
   <h4>Name: {{owner}}</h4>
   <br>
@@ -10,3 +19,5 @@
 {{else}}
 <p>No Blogs listed</p>
 {{/each}}
+</body>
+</html>

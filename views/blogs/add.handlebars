@@ -1,17 +1,24 @@
 <div class="card card-body">
   <h3 class="text-center">BLOG IDEA</h3>
-  <form action="/blogs" method="post">
+  <p class="text-center"><mark>Please be polite to other bloggers!</mark>
+    <ol>
+      <h4><u>Keep in mind:</u></h4>
+      <li>No Bullying!!!</li>
+      <li>No Deragotory comments!!!</li>
+    </ol>
+  </p>
+  <form action="/blogs" method="post" class="login">
     <div class="form-group">
       <label for="owner">owner</label>
-      <input type="text" class="form-control" name="owner" required>
+      <input type="text" class="form-control" name="owner" placeholder="Enter your name" required>
     </div>
     <div class="form-group">
       <label for="title"> blog title</label>
-      <input type="text" class="form-control" name="title" required>
+      <input type="text" class="form-control" name="title" placeholder="Blog Title"  required>
     </div>
     <div class="form-group">
       <label for="title">Details</label>
-      <textarea type="text" class="form-control" name="details" required></textarea>
+      <textarea type="text" class="form-control" name="details" placeholder="What's on your mind?"  required></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

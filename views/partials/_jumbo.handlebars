@@ -1,13 +1,13 @@
 <div class="jumbotron">
-  <h1 class="display-3 text-center">WELCOME TO YOUR BLOG</h1>
-  <p class="lead text-center">Upon loggin you will click a dropdown arrow to the top right corner and use it to <mark>ADD BLOGS</mark> and <mark>SEE ALL OTHER BLOGS</mark> </p>
+  <h1 class="display-3 text-center">WELCOME TO <i>WHO BLOG</i></h1>
+  <p class="lead text-center">Upon loggin you will be able to <mark>ADD BLOGS</mark> and <mark>SEE ALL OTHER BLOGS</mark> </p>
   <hr class="my-4">
   <center>
     <p class="lead">
       {{#if user}}
-      <a href="/blogs/allindex" class="btn btn-primary btn-lg">All-Blogs</a>
+      <a href="/blogs/allindex" class="btn pnkb btn-lg">All-Blogs</a>
       <a href="/blogs" class="btn btn-primary btn-lg">my-Blogs</a>
-      <a href="/blogs/add" class="btn btn-primary btn-lg">Add</a>
+      <a href="/blogs/add" class="btn btn-success btn-lg">Add</a>
       {{else}}
       <a class="btn btn-primary btn-lg" href="/users/login" role="button">Login</a>
       <a class="btn btn-primary btn-lg" href="/users/register" role="button">Register</a>

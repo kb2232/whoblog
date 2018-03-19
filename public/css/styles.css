@@ -1,0 +1,31 @@
+nav:hover {
+  background-color: rgb(0, 255, 170);
+}
+footer:hover {
+  background-color: rgb(0, 255, 170);
+}
+.a1:hover {
+  background-color: yellow;
+}
+.login {
+  background-color: orange;
+}
+.btn1 {
+  background-color: dodgerblue;
+}
+.btn2 {
+  background-color: rgb(240, 3, 3);
+}
+.pnkb {
+	color:black;
+	background-color: #ff00aaef;
+	border-color: #ff00aaef;
+  }
+.border 
+{
+    border: 3px solid black;
+}
+.bodyB 
+{
+  background-color: yellow;
+}
