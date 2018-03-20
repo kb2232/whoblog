@@ -21,6 +21,11 @@ footer:hover {
 	background-color: #ff00aaef;
 	border-color: #ff00aaef;
   }
+.rnkb {
+    color:black;
+    background-color: #f70411ef;
+    border-color: #ff0000f3;
+    }
 .border 
 {
     border: 3px solid black;
@@ -28,4 +33,19 @@ footer:hover {
 .bodyB 
 {
   background-color: yellow;
+}
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.justify {
+  text-align: justify;
 }

@@ -1,9 +1,12 @@
 $("#pogPink").click(function(){
-	$("#pogText").css("color","pink");
+	$("#pogTextp").css("color","pink");
 });
 $("#pogOrange").click(function(){
-	$("#pogText").css("color","orange");
+	$("#pogTexto").css("color","orange");
 });
 $("#pogGreen").click(function(){
-	$("#pogText").css("color","green");
+	$("#pogTextg").css("color","green");
+});
+$("#pogRed").click(function(){
+	$("#pogTextr").css("color","red");
 });
