@@ -1,8 +1,9 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var bcrypt = require('bcryptjs');
-var passport = require('passport');
-var router = express.Router();
+var express = require('express'),
+  bodyParser = require('body-parser'),
+  router = express.Router(),
+  mongoose = require('mongoose'),
+  bcrypt = require('bcryptjs'),
+  passport = require('passport');
 
 // Load User Model
 require('../models/User');
@@ -59,7 +60,7 @@ router.post('/register', (req, res) => {
             email: req.body.email,
             password: req.body.password
           });
-          
+          //asyn version of hashing function
           bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {
               if(err) throw err;

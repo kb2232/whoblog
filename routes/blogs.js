@@ -27,6 +27,21 @@ router.get('/allindex', ensureAuthenticated, (req, res) => {
   });
 });
 
+//add science blog
+router.get('/sci', ensureAuthenticated,function(req,res){
+  res.render('blogs/sci');
+});
+
+//add humanities blog
+router.get('/hum', ensureAuthenticated,function(req,res){
+  res.render('blogs/hum');
+});
+
+//add CREATE blog
+router.get('/create', ensureAuthenticated,function(req,res){
+  res.render('blogs/create');
+});
+
 // Add Blog Form
 router.get('/add', ensureAuthenticated, (req, res) => {
   res.render('blogs/add');

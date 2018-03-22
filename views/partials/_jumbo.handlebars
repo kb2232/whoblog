@@ -1,16 +1,41 @@
 <div class="jumbotron">
-  <h1 class="display-3 text-center">WELCOME TO <i>WHO BLOG</i></h1>
-  <p class="lead text-center">Upon loggin you will be able to <mark>ADD BLOGS</mark> and <mark>SEE ALL OTHER BLOGS</mark> </p>
+  {{#if user}}
+  <p class="text-center">
+    You can view all blogs from all topics by clicking the all blogs button.<br>
+  To create your own blog idea, simple go to subject and create topic. Please be polite to other bloggers. This site is consistently being monitored.
+  </p>
+  {{else}}
+  <p class="lead text-center">Upon loggin you will be able to
+    <mark>ADD BLOGS</mark> and
+    <mark>SEE ALL OTHER BLOGS</mark>
+  </p>
+  {{/if}}
   <hr class="my-4">
   <center>
     <p class="lead">
       {{#if user}}
-      <a href="/blogs/allindex" class="btn pnkb btn-lg">All-Blogs</a>
-      <a href="/blogs" class="btn btn-primary btn-lg">my-Blogs</a>
-      <a href="/blogs/add" class="btn btn-success btn-lg">Add</a>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 right">
+            <a href="/blogs/allindex" class="btn pnkb btn-lg">All-Blogs</a>
+          </div>
+          <div class="col-sm-6 left">
+            <ul class="nav-item dropdown">
+              <a href="#" class="dropdown-toggle btn btn-success btn-lg" data-toggle="dropdown" id="navbarDropdownMenuLink" class="btn btn-lg">Subject</a>
+              <div class="dropdown-menu">
+                <a href="/blogs/allindex" class="dropdown-item">General</a>
+                <a href="/blogs" class="dropdown-item">my-Blogs</a>
+                <a href="/blogs/add" class="dropdown-item">Add Blogs</a>
+                <a href="/blogs/sci" class="dropdown-item">Sciences</a>
+                <a href="/blogs/hum" class="dropdown-item">Humanities</a>
+                <a href="/blogs/create" class="dropdown-item">Create Topic</a>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
       {{else}}
       <a class="btn btn-primary btn-lg" href="/users/login" role="button">Login</a>
-      <a class="btn btn-primary btn-lg" href="/users/register" role="button">Register</a>
       {{/if}}
     </p>
   </center>

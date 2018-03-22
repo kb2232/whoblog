@@ -1,16 +1,14 @@
-'use strict';
+var express = require('express'),
+  bodyParser = require('body-parser'),
+  app = express(),
+  path = require('path'),
+  exphbs  = require('express-handlebars'),
+  methodOverride = require('method-override'),
+  flash = require('connect-flash'),
+  session = require('express-session'),
+  passport = require('passport'),
+  mongoose = require('mongoose');
 
-var express = require('express');
-var path = require('path');
-var exphbs  = require('express-handlebars');
-var methodOverride = require('method-override');
-var flash = require('connect-flash');
-var session = require('express-session');
-var bodyParser = require('body-parser');
-var passport = require('passport');
-var mongoose = require('mongoose');
-
-var app = express();
 
 // Load routes
 var blogs = require('./routes/blogs');
