@@ -40,7 +40,7 @@ nev.configure(
     emailFieldName: 'email',
     passwordFieldName: 'password',
     URLFieldName: 'GENERATED_VERIFYING_URL',
-    expirationTime: 3600, // 1 minutes
+    expirationTime: 3600, // 1 hour
 
     //the options that will be passed to //nodemailer.createTransport
     transportOptions: {
