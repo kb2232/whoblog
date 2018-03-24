@@ -11,7 +11,9 @@ var express = require('express'),
 
 
 // Load routes
+//load blog
 var blogs = require('./routes/blogs');
+//load user
 var users = require('./routes/users');
 
 // Passport Config
@@ -20,7 +22,7 @@ require('./config/passport')(passport);
 //database config
 var db = require('./config/database');
 
-// Connect to mongoose - using rl
+// Connect to mongoose - using uri
 mongoose.connect(db.mongoURI).then(() => console.log('MongoDB Connected...')).catch(err => console.log(err));
 
 //path middleware

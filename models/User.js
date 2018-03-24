@@ -22,9 +22,8 @@ const UserSchema = new Schema({
   }
 });
 
-UserSchema.methods.validPassword = function(password)
-{
-  return bcrypt.compareSync(password,this.password);
-}
+UserSchema.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.password);
+};
 
-mongoose.model('users', UserSchema);
+module.exports = mongoose.model('users', UserSchema);
