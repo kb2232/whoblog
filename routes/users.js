@@ -40,7 +40,7 @@ nev.configure(
     emailFieldName: 'email',
     passwordFieldName: 'password',
     URLFieldName: 'GENERATED_VERIFYING_URL',
-    expirationTime: 60, // 2 minutes
+    expirationTime: 3600, // 1 minutes
 
     //the options that will be passed to //nodemailer.createTransport
     transportOptions: {
@@ -156,7 +156,7 @@ router.post('/register', (req, res) => {
                 req.flash('error_msg', 'sending verification email FAILED');
               }
 
-              req.flash('success_msg', 'An email has been sent to you. Please check it to verify your account.');
+              req.flash('success_msg', 'An email has been sent to you. Please check it to verify your account. Check your SPAM inbox if not in regular inbox');
 
               res.redirect('/users/login');
 
