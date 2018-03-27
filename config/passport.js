@@ -7,13 +7,13 @@ const User = mongoose.model('users');
 
 module.exports = function(passport)
 {
-  passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
+  passport.use(new LocalStrategy({usernameField: 'username'}, (username, password, done) => {
     //check for user
     User.findOne({
-      email:email
+      username:username
     }).then(user=>{
       if(!user) {
-        return done(null,false,{message:"No user found"});
+        return done(null,false,{message:"Username not found"});
       }
       //check password - need to decrpyt 
       bcrypt.compare(password,user.password,(err, isMatch)=> {

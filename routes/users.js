@@ -29,8 +29,7 @@ myHasher = function (password, tempUserData, insertTempUser, callback) {
 nev.configure(
   {
     /*the url sent to the user to click  */
-    verificationURL: 'www.kunleblog.com/users/email-verification/${URL}',
-    URLLength: 48,
+    verificationURL: 'www.kunleblog.com/users/email-verification/${URL}',   URLLength: 48,
     /*mongoose model for the persistent user */
     persistentUserModel: User,//this can be null
     //The tempuser is generated below
@@ -106,33 +105,50 @@ router.post('/login', (req, res, next) => {
 });
 
 // Register Form POST
-router.post('/register', (req, res) => {
+router.post('/register', (req, res) => 
+{
   let errors = [];
 
   if (req.body.password != req.body.password2) {
     errors.push({ text: 'Passwords do not match' });
   }
 
-  if (req.body.password.length < 4) {
-    errors.push({ text: 'Password must be at least 4 characters' });
+  if (req.body.password.length < 5) {
+    errors.push({ text: 'Password must be at least 5 characters' });
   }
 
-  if (errors.length > 0) {
+  if (errors.length > 0) 
+  {
     res.render('users/register', {
       errors: errors,
       name: req.body.name,
       email: req.body.email,
+      username: req.body.username,
       password: req.body.password,
       password2: req.body.password2
     });
-  } else {
-    User.findOne({ email: req.body.email }).then(user => {
-      if (user) {
+  } else 
+  {
+    User.findOne({ email: req.body.email }).then(user => 
+    {
+      if (user) 
+      {
         req.flash('error_msg', 'Email already regsitered');
         res.redirect('/users/register');
-      } else {
+      }
+    })
+    User.findOne({username:req.body.username}).then(user =>
+    {
+      if (user) 
+      {
+        req.flash('error_msg', 'Username already registered');
+        res.redirect('/users/register');
+      }
+      else
+      {
         var newUser = new User({
           name: req.body.name,
+          username: req.body.username,
           email: req.body.email,
           password: req.body.password
         });

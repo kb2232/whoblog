@@ -37,7 +37,6 @@ http://www.passportjs.org/docs/
     1. heroku create
     1. heroku apps:destroy <app-name>
     2. heroku logs --tail --app <app-name>
-  
 */
 
 
