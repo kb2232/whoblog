@@ -23,7 +23,12 @@ require('./config/passport')(passport);
 var db = require('./config/database');
 
 // Connect to mongoose - using uri
-mongoose.connect(db.mongoURI).then(() => console.log('MongoDB Connected...')).catch(err => console.log(err));
+mongoose.connect(db.mongoURI);
+var db_obj = mongoose.connection;
+db_obj.on('error', console.error.bind(console, 'connection error:'));
+db_obj.once('open', function() {
+  console.log('MongoDB Connected...');
+});
 
 //path middleware
 app.use('/', express.static(path.join(__dirname, 'myapp')));

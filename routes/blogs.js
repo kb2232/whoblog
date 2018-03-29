@@ -19,10 +19,13 @@ router.get('/', ensureAuthenticated, (req, res) => {
 });
 
 // all blogs Index Page
-router.get('/allindex', ensureAuthenticated, (req, res) => {
-  Blog.find({}).sort({ date: 'desc' }).then(blog => {
-    res.render('blogs/allindex', {
-      blog: blog
+router.get('/allindex', ensureAuthenticated, (req, res) => 
+{
+  Blog.find({}).sort({ date: 'desc' }).then(blog => 
+  {
+    res.render('blogs/allindex', 
+    {
+      eblog: blog
     });
   });
 });
@@ -64,19 +67,20 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
 });
 
 // Process Form
-router.post('/', ensureAuthenticated, (req, res) => {
-  var newUser =
-    {
-      owner: req.body.owner,
-      title: req.body.title,
-      details: req.body.details,
-      user: req.user.id
-    }
-  new Blog(newUser).save().then(blog => {
-    console.log(req.body);
-    req.flash('success_msg', 'blog added');
-    res.redirect('/blogs');
-  })
+router.post('/', ensureAuthenticated, (req, res) => 
+{
+    //create a new document
+    var newUser = new Blog(
+      {
+        owner: req.body.owner,
+        details: req.body.details,
+        user: req.user.id,
+        usern: req.user.username
+    });
+    newUser.save().then(()=>{
+      req.flash('success_msg', 'blog added');
+      res.redirect('/blogs');
+    })
 });
 
 // Edit Form process

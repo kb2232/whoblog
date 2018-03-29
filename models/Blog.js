@@ -1,13 +1,8 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
 // Create Schema
-var BlogSchema = new Schema({
+var BlogSchema = mongoose.Schema({
   owner:{
-    type: String,
-    required: true
-  },
-  title:{
     type: String,
     required: true
   },
@@ -15,7 +10,11 @@ var BlogSchema = new Schema({
     type: String,
     required: true
   },
-  user:{
+  user: {
+    type: String,
+    required: true
+  },
+  usern: {
     type: String,
     required: true
   },
@@ -25,4 +24,4 @@ var BlogSchema = new Schema({
   }
 });
 
-mongoose.model('blogs', BlogSchema);
+module.exports = mongoose.model('blogs', BlogSchema);
