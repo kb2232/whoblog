@@ -13,7 +13,7 @@ var Blog = mongoose.model('blogs');
 router.get('/', ensureAuthenticated, (req, res) => {
   Blog.find({user: req.user.id}).sort({ date: 'desc' }).then(blog => {
     res.render('blogs/index', {
-      blog: blog
+      iblog: blog
     });
   });
 });
@@ -38,11 +38,6 @@ router.get('/sci', ensureAuthenticated,function(req,res){
 //add humanities blog
 router.get('/hum', ensureAuthenticated,function(req,res){
   res.render('blogs/hum');
-});
-
-//add CREATE blog
-router.get('/create', ensureAuthenticated,function(req,res){
-  res.render('blogs/create');
 });
 
 // Add Blog Form

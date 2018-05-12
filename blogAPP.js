@@ -11,10 +11,13 @@ var express = require('express'),
 
 
 // Load routes
+
 //load blog
 var blogs = require('./routes/blogs');
 //load user
 var users = require('./routes/users');
+//load user page
+var mpage = require('./routes/mpage');
 
 // Passport Config
 require('./config/passport')(passport);
@@ -83,6 +86,7 @@ app.get('/', (req, res) => {
 // Use routes
 app.use('/blogs', blogs);
 app.use('/users', users);
+app.use('/mpage', mpage);
 
 var port = process.env.PORT || 4000;
 app.listen(port,()=>{
